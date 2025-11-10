@@ -1,0 +1,16 @@
+fastapi
+gradio
+uvicorn
+pydantic
+python-dotenv
+requests
+transformers
+openai
+# tldextract
+
+
+# If using GPU
+torch     
+torchvision
+torchaudio 
+--extra-index-url https://download.pytorch.org/whl/cu128
