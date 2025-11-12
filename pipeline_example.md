@@ -1,3 +1,5 @@
+rsync -avP app/core/phishing_rules.py kv355867@dgx-head01.its.albany.edu:/network/rit/lab/Lai_ReSecureAI/kianavu/Phishing-Detection-Chatbot/app/core
+
 anti-phishing-chatbot/
 │
 ├── app/                          # Main application code
