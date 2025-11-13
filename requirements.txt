@@ -14,3 +14,10 @@ torch
 torchvision
 torchaudio 
 --extra-index-url https://download.pytorch.org/whl/cu128
+
+# Additional
+accelerate>=0.33.0
+bitsandbytes>=0.42.0
+huggingface_hub>=0.20.0
+sentencepiece>=0.1.99
+protobuf>=3.20.0

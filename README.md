@@ -60,7 +60,7 @@ cd Phishing-Detection-Chatbot
 2. **Create and activate a virtual environment**
 
 ```bash
-python -m venv phishing
+python3 -m venv phishing
 source phishing/bin/activate       # macOS/Linux
 venv\Scripts\activate          # Windows
 ```
@@ -68,8 +68,8 @@ venv\Scripts\activate          # Windows
 3. **Install dependencies**
 
 ```bash
-pip install --upgrade pip
-pip install -r requirements.txt
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
 ```
 
 ---
