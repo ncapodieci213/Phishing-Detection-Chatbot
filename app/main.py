@@ -71,6 +71,7 @@ with gr.Blocks(theme=gr.themes.Default(), title="Phishing Detector") as gradio_i
 
     gr.Examples(
         examples=[
+            ["Please visit www.exаmple.com or https://раypal.com/login and also try www.amazon.co.uk and www.göögle.com"],
             ["Your account has been compromised! Click here: http://paypa1.com/verify"],
             ["Dear customer, confirm your SSN and password for security verification."],
             ["URGENT: You won $1,000,000! Send credit card details to claim NOW!"],

@@ -2,27 +2,49 @@
 import json
 import os
 import torch
+from typing import Optional
 
 def check_keywords(text, keywords):
     detected_keywords = [keyword for keyword in keywords if keyword in text.lower()]
     return detected_keywords
 
-def load_json_safe(filename, default=None):
+def load_json_safe(filename: str, default: Optional[dict] = None) -> dict:
+    """Safely load a JSON file.
+
+    If `filename` is not an absolute path or does not exist as given,
+    this function will try to resolve it relative to the package `app/utils`
+    directory so bundled resources like `homoglyphs.json` can be loaded
+    reliably regardless of the current working directory.
     """
-    Safely load JSON file with fallback
-    """
+    # If an absolute/relative path exists as provided, use it
     try:
         if os.path.exists(filename):
             with open(filename, 'r', encoding='utf-8') as f:
                 return json.load(f)
+
+        # Try to resolve relative to app/utils
+        base = os.path.dirname(os.path.dirname(__file__))
+        candidate = os.path.join(base, 'utils', filename)
+        if os.path.exists(candidate):
+            with open(candidate, 'r', encoding='utf-8') as f:
+                return json.load(f)
     except Exception as e:
         print(f"Warning: Could not load {filename}: {e}")
+
     return default or {}
 
-def check_homoglyphs(text):
-    """Check for homoglyph attacks"""
+def check_homoglyphs(text: str, mapping_file: str = 'homoglyphs.json') -> list:
+    """Check for homoglyph characters in arbitrary `text`.
+
+    Returns a list of dicts with keys: `char`, `looks_like`, `position`.
+    `mapping_file` may be an absolute path or a file name that will be
+    resolved relative to `app/utils`.
+    """
     found = []
-    homoglyphs = load_json_safe('homoglyphs.json')
+    homoglyphs = load_json_safe(mapping_file, default={})
+    if not homoglyphs:
+        return found
+
     for i, char in enumerate(text):
         if char in homoglyphs:
             found.append({
