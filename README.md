@@ -227,7 +227,7 @@ You are free to use, modify, and distribute this project with attribution.
 * [Gradio](https://gradio.app/) for the web UI
 * [PyTorch](https://pytorch.org/) for machine learning support
 * [LLaMA](https://ai.meta.com/llama/) for natural-language explanations
-* [Homoglyphs] (https://gist.github.com/StevenACoffman/a5f6f682d94e38ed804182dc2693ed4b#file-some_homoglyphs-json) source for homoglph json *added to and reformatted with CoPilot*
+* Homoglyphs JSON - (https://gist.github.com/StevenACoffman/a5f6f682d94e38ed804182dc2693ed4b#file-some_homoglyphs-json) source for homoglph json *added to and reformatted with CoPilot*
 
 ---
 
